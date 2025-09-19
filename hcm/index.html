@@ -6,13 +6,79 @@
     <title>Khối Đại Đoàn Kết Dân Tộc - Lịch Sử Việt Nam</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English+SC&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English+SC&family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="description" content="Khám phá lịch sử tư tưởng Hồ Chí Minh về đại đoàn kết toàn dân tộc và đoàn kết quốc tế">
     <meta name="keywords" content="Hồ Chí Minh, lịch sử Việt Nam, đại đoàn kết, dân tộc">
 </head>
 <body>
     <div class="particles-container"></div>
+    
+    <!-- Vietnamese Traditional Elements -->
+    <div class="vietnamese-decorations">
+        <!-- Dragon and Phoenix Elements -->
+        <div class="dragon-left">
+            <svg viewBox="0 0 200 100" class="dragon-svg">
+                <path d="M10,50 Q50,20 100,50 Q150,80 190,50" stroke="#D4AF37" stroke-width="3" fill="none" opacity="0.6"/>
+                <circle cx="190" cy="50" r="8" fill="#D4AF37" opacity="0.8"/>
+            </svg>
+        </div>
+        <div class="dragon-right">
+            <svg viewBox="0 0 200 100" class="dragon-svg">
+                <path d="M190,50 Q150,20 100,50 Q50,80 10,50" stroke="#D4AF37" stroke-width="3" fill="none" opacity="0.6"/>
+                <circle cx="10" cy="50" r="8" fill="#D4AF37" opacity="0.8"/>
+            </svg>
+        </div>
+        
+        <!-- Lotus Flowers -->
+        <div class="lotus lotus-1">
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-center"></div>
+        </div>
+        <div class="lotus lotus-2">
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-petal"></div>
+            <div class="lotus-center"></div>
+        </div>
+        
+        <!-- Vietnamese Flag Elements -->
+        <div class="flag-star flag-star-1">⭐</div>
+        <div class="flag-star flag-star-2">⭐</div>
+        
+        <!-- Temple Silhouettes -->
+        <div class="temple-silhouette temple-left">
+            <div class="temple-roof"></div>
+            <div class="temple-body"></div>
+        </div>
+        <div class="temple-silhouette temple-right">
+            <div class="temple-roof"></div>
+            <div class="temple-body"></div>
+        </div>
+    </div>
+    
+    <!-- Incense Smoke Effect -->
+    <div class="incense-container">
+        <div class="smoke smoke-1"></div>
+        <div class="smoke smoke-2"></div>
+        <div class="smoke smoke-3"></div>
+    </div>
+    
+    <!-- Traditional Vietnamese Audio -->
+    <div class="audio-controls">
+        <button id="audioToggle" class="audio-btn" title="Bật/Tắt âm thanh truyền thống">
+            <i class="fas fa-volume-up"></i>
+        </button>
+        <audio id="traditionalMusic" loop preload="auto">
+            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+            <!-- Fallback for browsers that don't support wav -->
+            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
+        </audio>
+    </div>
     
     <!-- Historical decorative elements -->
     <div class="historical-ornaments">
@@ -25,22 +91,41 @@
     <header data-aos="fade-down" data-aos-duration="1200" class="historical-header">
         <div class="header-crown">
             <div class="crown-center">
-                <i class="fas fa-crown"></i>
+                <div class="vietnamese-emblem">
+                    <div class="star-emblem">⭐</div>
+                    <div class="emblem-text">VIỆT NAM</div>
+                </div>
             </div>
             <div class="crown-left"></div>
             <div class="crown-right"></div>
         </div>
         
         <div class="header-content">
-            <div class="chapter-number">Chương V</div>
-            <h1 class="main-title historical-title">
-                Tư tưởng Hồ Chí Minh về đại đoàn kết toàn dân tộc và đoàn kết quốc tế
+            <div class="chapter-number vietnamese-chapter">
+                <span class="chapter-decoration">❋</span>
+                Chương V
+                <span class="chapter-decoration">❋</span>
+            </div>
+            <h1 class="main-title historical-title calligraphy-title">
+                <span class="title-line">Tư tưởng Hồ Chí Minh</span>
+                <span class="title-line">về đại đoàn kết toàn dân tộc</span>
+                <span class="title-line">và đoàn kết quốc tế</span>
             </h1>
-            <div class="title-underline"></div>
-            <p class="quote historical-quote">
-                "Đoàn kết là sức mạnh, là then chốt của thành công"
-            </p>
-            <div class="quote-author">- Hồ Chí Minh -</div>
+            <div class="title-underline">
+                <div class="underline-decoration">🏛️ ❋ 🏛️</div>
+            </div>
+            <div class="quote-container">
+                <div class="quote-decoration-left">🌸</div>
+                <p class="quote historical-quote calligraphy-quote">
+                    "Đoàn kết là sức mạnh, là then chốt của thành công"
+                </p>
+                <div class="quote-decoration-right">🌸</div>
+            </div>
+            <div class="quote-author">
+                <span class="author-decoration">✦</span>
+                Chủ tịch Hồ Chí Minh
+                <span class="author-decoration">✦</span>
+            </div>
         </div>
         
         <div class="scroll-indicator historical-scroll">
@@ -150,101 +235,145 @@
         </section>
     </main>
     <!-- Historical Timeline Section -->
-    <div class="timeline-container historical-timeline">
-        <div class="timeline-header">
-            <h2 class="timeline-title">Dòng thời gian lịch sử</h2>
-            <div class="timeline-subtitle">Những mốc son quan trọng trong lịch sử đại đoàn kết dân tộc</div>
+<div class="timeline-container historical-timeline">
+    <!-- Ancient Scroll Header -->
+    <div class="timeline-header ancient-scroll-header">
+        <div class="scroll-ornament scroll-ornament-left">🐉</div>
+        <div class="timeline-title-container">
+            <div class="ancient-seal">⚜️</div>
+            <h2 class="timeline-title ancient-title">Sử Ký Đại Đoàn Kết</h2>
+            <div class="timeline-subtitle ancient-subtitle">
+                <span class="subtitle-decoration">❋</span>
+                Những mốc son thiêng liêng trong lịch sử dân tộc
+                <span class="subtitle-decoration">❋</span>
+            </div>
+            <div class="ancient-seal">⚜️</div>
         </div>
-        
-        <div class="timeline">
-            <div class="timeline-item historical-timeline-item" data-year="1930" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
-                <div class="timeline-content historical-timeline-content">
-                    <a href="page1.html" class="timeline-link"></a>
-                    <div class="timeline-icon">
-                        <i class="fas fa-scroll"></i>
-                    </div>
-                    <div class="timeline-header">
-                        <h3 class="timeline-title">Thành lập Đảng Cộng sản Việt Nam</h3>
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-image">
-                            <img src="images/Leftpicture.jpg" alt="Thành lập Đảng">
-                            <div class="image-caption">Mốc son lịch sử</div>
-                        </div>
-                        <p class="timeline-description">
-                            Sự kiện quan trọng đánh dấu sự ra đời của Đảng Cộng sản Việt Nam, 
-                            mở ra một trang sử mới cho dân tộc.
-                        </p>
-                    </div>
-                    <div class="timeline-footer">
-                        <span class="timeline-year">1930</span>
-                        <a href="page1.html" class="historical-link">
-                            <span>Khám phá thêm</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+        <div class="scroll-ornament scroll-ornament-right">🐉</div>
+    </div>
+    
+    <!-- Ancient Timeline Scroll -->
+    <div class="timeline ancient-timeline">
+        <div class="timeline-line ancient-scroll-line"></div>
+        <div class="timeline-scroll-top">📜</div>
+        <div class="timeline-scroll-bottom">📜</div>
+
+        <!-- 1930 -->
+        <div class="timeline-item left ancient-timeline-item" data-aos="fade-right" data-year="1930">
+            <div class="timeline-icon ancient-icon">
+                <div class="icon-background">
+                    <i class="fas fa-scroll"></i>
                 </div>
+                <div class="icon-glow"></div>
             </div>
-            
-            <div class="timeline-item historical-timeline-item" data-year="1941" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1000">
-                <div class="timeline-content historical-timeline-content">
-                    <a href="page2.html" class="timeline-link"></a>
-                    <div class="timeline-icon">
-                        <i class="fas fa-people-group"></i>
-                    </div>
-                    <div class="timeline-header">
-                        <h3 class="timeline-title">Mặt trận Việt Minh</h3>
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-image">
-                            <img src="images/Leftpicture.jpg" alt="Việt Minh">
-                            <div class="image-caption">Đoàn kết toàn dân</div>
+            <div class="timeline-content ancient-content">
+                <div class="content-seal">🏛️</div>
+                <h3 class="ancient-event-title">Canh Ngọ - Thành lập Đảng Cộng sản Việt Nam</h3>
+                <div class="timeline-image ancient-image">
+                    <div class="image-frame-ancient">
+                        <img src="images/Leftpicture.jpg" alt="Thành lập Đảng">
+                        <div class="image-border-decoration">
+                            <div class="corner-ornament top-left">❋</div>
+                            <div class="corner-ornament top-right">❋</div>
+                            <div class="corner-ornament bottom-left">❋</div>
+                            <div class="corner-ornament bottom-right">❋</div>
                         </div>
-                        <p class="timeline-description">
-                            Mặt trận Việt Minh được thành lập, tập hợp sức mạnh toàn dân tộc 
-                            trong cuộc đấu tranh giành độc lập.
-                        </p>
-                    </div>
-                    <div class="timeline-footer">
-                        <span class="timeline-year">1941</span>
-                        <a href="page2.html" class="historical-link">
-                            <span>Khám phá thêm</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
+                <div class="ancient-text">
+                    <p class="event-description">Sự kiện thiêng liêng đánh dấu sự ra đời của Đảng Cộng sản Việt Nam, mở ra kỷ nguyên mới cho dân tộc Việt Nam anh hùng.</p>
+                    <div class="ancient-quote">
+                        <span class="quote-mark">❝</span>
+                        <em>Đảng ta sinh ra để phục vụ Tổ quốc và nhân dân</em>
+                        <span class="quote-mark">❞</span>
+                    </div>
+                </div>
+                <a href="page1.html" class="historical-link ancient-link">
+                    <span class="link-decoration">🏛️</span>
+                    Khám phá thêm
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            
-            <div class="timeline-item historical-timeline-item" data-year="1951" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1000">
-                <div class="timeline-content historical-timeline-content">
-                    <a href="page3.html" class="timeline-link"></a>
-                    <div class="timeline-icon">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <div class="timeline-header">
-                        <h3 class="timeline-title">Mặt trận Liên Việt</h3>
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-image">
-                            <img src="images/Leftpicture.jpg" alt="Liên Việt">
-                            <div class="image-caption">Thống nhất dân tộc</div>
+        </div>
+
+        <!-- 1941 -->
+        <div class="timeline-item right ancient-timeline-item" data-aos="fade-left" data-year="1941">
+            <div class="timeline-icon ancient-icon">
+                <div class="icon-background">
+                    <i class="fas fa-people-group"></i>
+                </div>
+                <div class="icon-glow"></div>
+            </div>
+            <div class="timeline-content ancient-content">
+                <div class="content-seal">⚔️</div>
+                <h3 class="ancient-event-title">Tân Tỵ - Mặt trận Việt Minh</h3>
+                <div class="timeline-image ancient-image">
+                    <div class="image-frame-ancient">
+                        <img src="images/Leftpicture.jpg" alt="Mặt trận Việt Minh">
+                        <div class="image-border-decoration">
+                            <div class="corner-ornament top-left">❋</div>
+                            <div class="corner-ornament top-right">❋</div>
+                            <div class="corner-ornament bottom-left">❋</div>
+                            <div class="corner-ornament bottom-right">❋</div>
                         </div>
-                        <p class="timeline-description">
-                            Mặt trận Liên Việt ra đời, tiếp tục phát huy truyền thống 
-                            đại đoàn kết dân tộc trong thời kỳ mới.
-                        </p>
-                    </div>
-                    <div class="timeline-footer">
-                        <span class="timeline-year">1951</span>
-                        <a href="page3.html" class="historical-link">
-                            <span>Khám phá thêm</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
+                <div class="ancient-text">
+                    <p class="event-description">Mặt trận Việt Minh được thành lập, tập hợp sức mạnh toàn dân tộc trong cuộc thánh chiến giành độc lập.</p>
+                    <div class="ancient-quote">
+                        <span class="quote-mark">❝</span>
+                        <em>Đoàn kết - Đoàn kết - Đại đoàn kết</em>
+                        <span class="quote-mark">❞</span>
+                    </div>
+                </div>
+                <a href="page2.html" class="historical-link ancient-link">
+                    <span class="link-decoration">⚔️</span>
+                    Khám phá thêm
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 1951 -->
+        <div class="timeline-item left ancient-timeline-item" data-aos="fade-right" data-year="1951">
+            <div class="timeline-icon ancient-icon">
+                <div class="icon-background">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <div class="icon-glow"></div>
+            </div>
+            <div class="timeline-content ancient-content">
+                <div class="content-seal">🏮</div>
+                <h3 class="ancient-event-title">Tân Mão - Mặt trận Liên Việt</h3>
+                <div class="timeline-image ancient-image">
+                    <div class="image-frame-ancient">
+                        <img src="images/Leftpicture.jpg" alt="Mặt trận Liên Việt">
+                        <div class="image-border-decoration">
+                            <div class="corner-ornament top-left">❋</div>
+                            <div class="corner-ornament top-right">❋</div>
+                            <div class="corner-ornament bottom-left">❋</div>
+                            <div class="corner-ornament bottom-right">❋</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ancient-text">
+                    <p class="event-description">Mặt trận Liên Việt ra đời, tiếp tục phát huy truyền thống đại đoàn kết dân tộc trong thời kỳ xây dựng đất nước.</p>
+                    <div class="ancient-quote">
+                        <span class="quote-mark">❝</span>
+                        <em>Dân tộc Việt Nam là một khối thống nhất</em>
+                        <span class="quote-mark">❞</span>
+                    </div>
+                </div>
+                <a href="page3.html" class="historical-link ancient-link">
+                    <span class="link-decoration">🏮</span>
+                    Khám phá thêm
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </div>
+</div>
+
     <!-- Historical Footer -->
     <footer class="historical-footer">
         <div class="footer-content">

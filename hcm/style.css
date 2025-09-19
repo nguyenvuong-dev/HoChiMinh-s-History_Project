@@ -13,10 +13,20 @@
 
 body {
     background: 
-        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+        /* Ancient Vietnamese temple silhouette */
+        radial-gradient(ellipse at 10% 90%, rgba(139, 69, 19, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 90%, rgba(139, 69, 19, 0.15) 0%, transparent 40%),
+        /* Mountain ranges */
+        linear-gradient(180deg, transparent 0%, rgba(101, 67, 33, 0.1) 85%, rgba(101, 67, 33, 0.2) 100%),
+        /* Golden hour sky */
+        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.12) 0%, transparent 50%),
-        linear-gradient(135deg, #F1E4C8 0%, #E9D8B4 50%, #E3CCA3 100%);
+        /* Ancient parchment texture */
+        linear-gradient(135deg, #F5E6D3 0%, #E9D8B4 25%, #DCC99F 50%, #E3CCA3 75%, #F1E4C8 100%),
+        /* Traditional Vietnamese patterns */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="vietnamese-pattern" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="%23F5E6D3"/><circle cx="25" cy="25" r="2" fill="%23D4AF37" opacity="0.1"/><circle cx="75" cy="75" r="2" fill="%23D4AF37" opacity="0.1"/><path d="M0,50 Q25,40 50,50 Q75,60 100,50" stroke="%238B4513" stroke-width="0.5" opacity="0.05" fill="none"/><path d="M50,0 Q40,25 50,50 Q60,75 50,100" stroke="%238B4513" stroke-width="0.5" opacity="0.05" fill="none"/></pattern></defs><rect width="200" height="200" fill="url(%23vietnamese-pattern)"/></svg>');
     background-attachment: fixed;
+    background-size: cover, cover, cover, cover, cover, auto, 200px 200px;
     font-family: 'Cormorant Garamond', 'Playfair Display', serif;
     font-size: 18px;
     line-height: 1.8;
@@ -394,7 +404,7 @@ section {
     transition: box-shadow 0.3s ease, background 0.3s ease, padding 0.3s ease;
 }
 
-.historical-timeline .timeline-icon {
+/* .historical-timeline .timeline-icon {
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -405,7 +415,7 @@ section {
     box-shadow: 0 12px 24px rgba(212,175,55,0.35);
     font-size: 1.6rem;
     z-index: 2;
-}
+} */
 
 /* Only icon visible by default */
 .historical-timeline .timeline-content {
@@ -627,6 +637,7 @@ section {
     box-shadow: 0 8px 18px rgba(212,175,55,0.35);
 }
 
+
 .timeline-container::before {
     content: '';
     position: absolute;
@@ -675,12 +686,15 @@ section {
         0 0 20px rgba(139, 0, 0, 0.4),
         0 0 40px rgba(212, 175, 55, 0.3),
         inset 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-gold), var(--border-color));
+    margin-left: -2px;
     transition: all 0.5s ease;
 }
 
 /* Add scroll decorative ends */
 .timeline::after {
-    content: '';
+    content: 'câsasas';
     position: absolute;
     top: -20px;
     left: 50%;
@@ -723,12 +737,15 @@ section {
     position: relative;
     width: 50%;
     box-sizing: border-box;
+    transform: translateY(40px);
     opacity: 0;
-    transform: translateX(-100px) translateY(50px) rotateY(-15deg);
-    animation: slideInFromLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fadeSlideUp 0.8s ease forwards;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 .timeline-item:nth-child(even) {
     left: 50%;
     transform: translateX(100px) translateY(50px) rotateY(15deg);
@@ -929,6 +946,23 @@ section {
         transform: translateY(-50%) scale(1) rotate(0deg);
     }
 }
+.timeline::before {
+    background: linear-gradient(
+        to bottom,
+        #fdf5e6,
+        #f5deb3,
+        #deb887
+    );
+    border: 2px solid #8b5a2b;
+    border-radius: 6px;
+}
+/* .timeline-item::before {
+    content: url('ornament-icon.svg');
+    position: absolute;
+    top: 2rem;
+    left: -28px;
+} */
+
 
 .timeline-item:hover::before {
     transform: translateY(-50%) scale(1.08);
@@ -1019,6 +1053,8 @@ section {
         animation: slideInFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         transform: translateX(-30px) translateY(20px);
     }
+
+    
     
     .timeline-item::before {
         left: 0;
@@ -1219,5 +1255,1072 @@ h2::after {
     .parallax-layer {
         position: relative;
         transform: none !important;
+    }
+}
+/* Hiệu ứng ánh sáng quét ngang */
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+}
+
+.timeline-content:hover::after {
+    left: 125%;
+}
+
+/* Hiệu ứng parallax nhẹ khi cuộn */
+.timeline-item {
+    transition: transform 0.5s ease, opacity 0.6s ease;
+    will-change: transform;
+}
+
+.timeline-item.visible {
+    opacity: 1 !important;
+    transform: translateY(0) rotateY(0deg) !important;
+}
+
+/* Hiệu ứng rung nhẹ cho year bubble */
+.timeline-item:hover::before {
+    animation: pulseYear 1.2s infinite ease-in-out;
+}
+
+@keyframes pulseYear {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.15); }
+}
+
+/* Vietnamese Traditional Decorations */
+.vietnamese-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Dragon Elements */
+.dragon-left, .dragon-right {
+    position: absolute;
+    top: 20%;
+    width: 200px;
+    height: 100px;
+    opacity: 0.7;
+    animation: dragonFloat 8s ease-in-out infinite;
+}
+
+.dragon-left {
+    left: -50px;
+    animation-delay: 0s;
+}
+
+.dragon-right {
+    right: -50px;
+    animation-delay: 4s;
+}
+
+.dragon-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+@keyframes dragonFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(2deg); }
+    50% { transform: translateY(-10px) rotate(-1deg); }
+    75% { transform: translateY(-30px) rotate(1deg); }
+}
+
+/* Lotus Flowers */
+.lotus {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: lotusBloom 6s ease-in-out infinite;
+}
+
+.lotus-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.lotus-2 {
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 3s;
+}
+
+.lotus-petal {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: linear-gradient(45deg, #FFB6C1, #FFC0CB);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin: bottom center;
+    opacity: 0.8;
+}
+
+.lotus-petal:nth-child(1) { transform: rotate(0deg) translateY(-15px); }
+.lotus-petal:nth-child(2) { transform: rotate(90deg) translateY(-15px); }
+.lotus-petal:nth-child(3) { transform: rotate(180deg) translateY(-15px); }
+.lotus-petal:nth-child(4) { transform: rotate(270deg) translateY(-15px); }
+
+.lotus-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes lotusBloom {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+}
+
+/* Vietnamese Flag Stars */
+.flag-star {
+    position: absolute;
+    font-size: 2rem;
+    color: #FFD700;
+    animation: starTwinkle 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.flag-star-1 {
+    top: 25%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.flag-star-2 {
+    bottom: 30%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+    50% { transform: scale(1.3) rotate(180deg); opacity: 1; }
+}
+
+/* Temple Silhouettes */
+.temple-silhouette {
+    position: absolute;
+    bottom: 10%;
+    width: 80px;
+    height: 60px;
+    opacity: 0.4;
+}
+
+.temple-left {
+    left: 3%;
+}
+
+.temple-right {
+    right: 3%;
+}
+
+.temple-roof {
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    clip-path: polygon(10% 100%, 50% 0%, 90% 100%);
+    border-radius: 0 0 10px 10px;
+}
+
+.temple-body {
+    width: 70%;
+    height: 35px;
+    background: linear-gradient(180deg, #654321, #8B4513);
+    margin: 0 auto;
+    border-radius: 0 0 5px 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Incense Smoke Effect */
+.incense-container {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 200px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.smoke {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 100px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.6), transparent);
+    border-radius: 50%;
+    animation: smokeRise 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.smoke-1 {
+    animation-delay: 0s;
+    left: 45%;
+}
+
+.smoke-2 {
+    animation-delay: 1.3s;
+    left: 50%;
+}
+
+.smoke-3 {
+    animation-delay: 2.6s;
+    left: 55%;
+}
+
+@keyframes smokeRise {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-50px) scaleX(2);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-100px) scaleX(3);
+        opacity: 0;
+    }
+}
+
+/* Vietnamese Emblem in Header */
+.vietnamese-emblem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.star-emblem {
+    font-size: 2.5rem;
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    animation: emblemGlow 3s ease-in-out infinite;
+}
+
+.emblem-text {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes emblemGlow {
+    0%, 100% { transform: scale(1); text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+    50% { transform: scale(1.1); text-shadow: 0 0 30px rgba(255, 215, 0, 1); }
+}
+
+/* Vietnamese Chapter Styling */
+.vietnamese-chapter {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+}
+
+.chapter-decoration {
+    font-size: 1.2rem;
+    margin: 0 10px;
+    animation: decorationSpin 4s linear infinite;
+}
+
+@keyframes decorationSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Calligraphy Title Effect */
+.calligraphy-title {
+    font-family: 'IM Fell English SC', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title-line {
+    display: block;
+    position: relative;
+    animation: calligraphyWrite 2s ease-in-out forwards;
+    opacity: 0;
+}
+
+.title-line:nth-child(1) { animation-delay: 0.5s; }
+.title-line:nth-child(2) { animation-delay: 1s; }
+.title-line:nth-child(3) { animation-delay: 1.5s; }
+
+@keyframes calligraphyWrite {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Quote Container */
+.quote-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.quote-decoration-left, .quote-decoration-right {
+    font-size: 2rem;
+    animation: petalFloat 3s ease-in-out infinite;
+}
+
+.quote-decoration-right {
+    animation-delay: 1.5s;
+}
+
+@keyframes petalFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.calligraphy-quote {
+    font-family: 'IM Fell English SC', serif;
+    font-style: italic;
+    position: relative;
+}
+
+/* Author Decoration */
+.quote-author {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.author-decoration {
+    margin: 0 10px;
+    animation: authorGlow 2s ease-in-out infinite;
+}
+
+@keyframes authorGlow {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Underline Decoration */
+.underline-decoration {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    opacity: 0.8;
+    animation: underlineShimmer 3s ease-in-out infinite;
+}
+
+@keyframes underlineShimmer {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; text-shadow: 0 0 10px rgba(212, 175, 55, 0.6); }
+}
+
+/* Audio Controls */
+.audio-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.audio-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-gold), var(--secondary-color));
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.audio-btn.playing {
+    animation: audioGlow 2s ease-in-out infinite;
+}
+
+@keyframes audioGlow {
+    0%, 100% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+    50% { box-shadow: 0 6px 25px rgba(212, 175, 55, 0.8); }
+}
+
+/* Scroll Paper Effect */
+.content-box {
+    background: 
+        linear-gradient(135deg, var(--parchment) 0%, rgba(255, 255, 255, 0.95) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="paper" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="%23FDF5E6"/><line x1="0" y1="5" x2="20" y2="5" stroke="%23000" stroke-width="0.1" opacity="0.1"/><line x1="0" y1="10" x2="20" y2="10" stroke="%23000" stroke-width="0.1" opacity="0.1"/><line x1="0" y1="15" x2="20" y2="15" stroke="%23000" stroke-width="0.1" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23paper)"/></svg>');
+    border: 3px solid var(--border-color);
+    border-radius: 15px;
+    margin: 2rem;
+    padding: 2.5rem;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 0 20px rgba(139, 69, 19, 0.1);
+    position: relative;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: all 0.4s ease;
+}
+
+.content-box:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 0 25px rgba(139, 69, 19, 0.15);
+}
+
+/* Vietnamese Traditional Typography */
+.section-title, .timeline-title {
+    font-family: 'Noto Serif', 'Crimson Text', serif;
+    position: relative;
+}
+
+.section-description, .timeline-subtitle {
+    font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Calligraphy Writing Effect */
+.calligraphy-title .title-line::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-gold), transparent);
+    animation: writeUnderline 1s ease-in-out forwards;
+    animation-delay: inherit;
+}
+
+@keyframes writeUnderline {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Traditional Scroll Animation */
+.historical-card {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="scroll" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="%23FDF5E6"/><circle cx="10" cy="10" r="1" fill="%23D4AF37" opacity="0.1"/><circle cx="40" cy="40" r="1" fill="%23D4AF37" opacity="0.1"/><path d="M0,25 Q25,20 50,25" stroke="%23D4AF37" stroke-width="0.5" opacity="0.2" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23scroll)"/></svg>');
+    border-radius: 20px;
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.historical-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--accent-gold) 0%, 
+        transparent 20%,
+        transparent 80%,
+        var(--accent-gold) 100%
+    );
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.historical-card:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced Timeline with Scroll Effect */
+.timeline-container {
+    background: 
+        linear-gradient(135deg, 
+            var(--parchment) 0%,
+            rgba(245, 230, 211, 0.95) 50%,
+            var(--parchment) 100%
+        ),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="ancient-scroll" width="30" height="30" patternUnits="userSpaceOnUse"><rect width="30" height="30" fill="%23FDF5E6"/><path d="M0,15 Q15,10 30,15" stroke="%23D4AF37" stroke-width="0.3" opacity="0.3" fill="none"/><circle cx="15" cy="15" r="0.5" fill="%238B4513" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23ancient-scroll)"/></svg>');
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at top, rgba(212, 175, 55, 0.1) 0%, transparent 70%),
+        radial-gradient(ellipse at bottom, rgba(139, 0, 0, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Floating Lantern Effect */
+.floating-lantern {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+    border-radius: 20px 20px 10px 10px;
+    opacity: 0.6;
+    animation: lanternFloat 8s ease-in-out infinite;
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.5),
+        inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.floating-lantern::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 10px;
+    background: #8B4513;
+    border-radius: 50%;
+}
+
+.floating-lantern::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 15px solid #FFA500;
+}
+
+@keyframes lanternFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-30px) rotate(2deg); }
+    50% { transform: translateY(-20px) rotate(-1deg); }
+    75% { transform: translateY(-40px) rotate(1deg); }
+}
+
+/* Add lanterns to decoration */
+.vietnamese-decorations::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    width: 40px;
+    height: 60px;
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+    border-radius: 20px 20px 10px 10px;
+    opacity: 0.6;
+    animation: lanternFloat 8s ease-in-out infinite;
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.5),
+        inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Ancient Timeline Styles */
+.ancient-scroll-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+    position: relative;
+    background: 
+        linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="scroll-header" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="%23FDF5E6"/><path d="M0,25 Q12.5,15 25,25 Q37.5,35 50,25" stroke="%23D4AF37" stroke-width="0.3" opacity="0.4" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23scroll-header)"/></svg>');
+    border-radius: 20px;
+    margin: 2rem;
+    box-shadow: 
+        0 10px 30px rgba(139, 69, 19, 0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.scroll-ornament {
+    font-size: 3rem;
+    animation: dragonBreath 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+}
+
+.scroll-ornament-left {
+    animation-delay: 0s;
+}
+
+.scroll-ornament-right {
+    animation-delay: 2s;
+}
+
+@keyframes dragonBreath {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+}
+
+.timeline-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 2rem;
+}
+
+.ancient-seal {
+    font-size: 2rem;
+    animation: sealGlow 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
+}
+
+@keyframes sealGlow {
+    0%, 100% { opacity: 0.7; transform: rotate(0deg); }
+    50% { opacity: 1; transform: rotate(180deg); }
+}
+
+.ancient-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 
+        2px 2px 0 var(--accent-gold),
+        4px 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.ancient-subtitle {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.2rem;
+    color: var(--dark-wood);
+    text-align: center;
+    font-style: italic;
+}
+
+.subtitle-decoration {
+    margin: 0 15px;
+    color: var(--accent-gold);
+    animation: decorationTwinkle 2s ease-in-out infinite;
+}
+
+.subtitle-decoration:first-child {
+    animation-delay: 0s;
+}
+
+.subtitle-decoration:last-child {
+    animation-delay: 1s;
+}
+
+@keyframes decorationTwinkle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Ancient Timeline Line */
+.ancient-scroll-line {
+    background: 
+        linear-gradient(180deg, 
+            var(--accent-gold) 0%,
+            var(--border-color) 10%,
+            var(--dark-wood) 20%,
+            var(--border-color) 30%,
+            var(--accent-gold) 40%,
+            var(--border-color) 50%,
+            var(--accent-gold) 60%,
+            var(--border-color) 70%,
+            var(--dark-wood) 80%,
+            var(--border-color) 90%,
+            var(--accent-gold) 100%
+        );
+    width: 8px;
+    border-radius: 4px;
+    box-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.5),
+        inset 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.ancient-scroll-line::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--accent-gold), var(--border-color));
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+}
+
+.ancient-scroll-line::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--accent-gold), var(--border-color));
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+}
+
+.timeline-scroll-top, .timeline-scroll-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    z-index: 10;
+    animation: scrollFloat 3s ease-in-out infinite;
+}
+
+.timeline-scroll-top {
+    top: -30px;
+    animation-delay: 0s;
+}
+
+.timeline-scroll-bottom {
+    bottom: -30px;
+    animation-delay: 1.5s;
+}
+
+@keyframes scrollFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Ancient Timeline Items */
+.ancient-timeline-item {
+    position: relative;
+}
+
+.ancient-timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: 
+        radial-gradient(circle, 
+            var(--accent-gold) 0%,
+            var(--secondary-color) 30%,
+            var(--primary-color) 70%,
+            var(--dark-wood) 100%
+        );
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Cinzel', serif;
+    border: 6px solid var(--parchment);
+    z-index: 3;
+    box-shadow: 
+        0 0 30px rgba(212, 175, 55, 0.8),
+        0 0 60px rgba(139, 0, 0, 0.4),
+        inset 0 0 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: ancientScaleIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes ancientScaleIn {
+    0% {
+        transform: translateY(-50%) scale(0) rotate(360deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-50%) scale(1.3) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.ancient-timeline-item:hover::before {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 
+        0 0 35px rgba(212, 175, 55, 1),
+        0 0 70px rgba(139, 0, 0, 0.6),
+        inset 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Ancient Content Styling */
+.ancient-content {
+    background: 
+        linear-gradient(135deg, 
+            var(--parchment) 0%, 
+            rgba(255, 255, 255, 0.98) 100%
+        ),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="ancient-paper" width="25" height="25" patternUnits="userSpaceOnUse"><rect width="25" height="25" fill="%23FDF5E6"/><line x1="0" y1="8" x2="25" y2="8" stroke="%23000" stroke-width="0.1" opacity="0.1"/><line x1="0" y1="16" x2="25" y2="16" stroke="%23000" stroke-width="0.1" opacity="0.1"/><circle cx="5" cy="5" r="0.5" fill="%23D4AF37" opacity="0.1"/><circle cx="20" cy="20" r="0.5" fill="%23D4AF37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23ancient-paper)"/></svg>');
+    border: 4px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 
+        0 15px 40px rgba(139, 69, 19, 0.4),
+        inset 0 0 25px rgba(212, 175, 55, 0.1);
+    transform: perspective(1000px) rotateX(3deg);
+    transition: all 0.5s ease;
+}
+
+.ancient-content:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-8px);
+    box-shadow: 
+        0 20px 50px rgba(139, 69, 19, 0.5),
+        inset 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+.content-seal {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: radial-gradient(circle, var(--accent-gold), var(--secondary-color));
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    animation: sealRotate 4s linear infinite;
+}
+
+@keyframes sealRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.ancient-event-title {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid var(--accent-gold);
+    padding-bottom: 0.5rem;
+}
+
+/* Ancient Image Frame */
+.image-frame-ancient {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    transform: rotate(-1deg);
+    transition: all 0.4s ease;
+}
+
+.ancient-timeline-item.right .image-frame-ancient {
+    transform: rotate(1deg);
+}
+
+.image-frame-ancient:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.image-frame-ancient img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: sepia(20%) contrast(1.1) brightness(0.9);
+    transition: all 0.4s ease;
+}
+
+.image-frame-ancient:hover img {
+    filter: sepia(10%) contrast(1.2) brightness(1);
+}
+
+.image-border-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.corner-ornament {
+    position: absolute;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    animation: ornamentGlow 3s ease-in-out infinite;
+}
+
+.corner-ornament.top-left {
+    top: 10px;
+    left: 10px;
+    animation-delay: 0s;
+}
+
+.corner-ornament.top-right {
+    top: 10px;
+    right: 10px;
+    animation-delay: 0.75s;
+}
+
+.corner-ornament.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    animation-delay: 1.5s;
+}
+
+.corner-ornament.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    animation-delay: 2.25s;
+}
+
+@keyframes ornamentGlow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Ancient Text Styling */
+.ancient-text {
+    margin: 1.5rem 0;
+}
+
+.event-description {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.ancient-quote {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid var(--accent-gold);
+    border-right: 4px solid var(--accent-gold);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    font-style: italic;
+    text-align: center;
+    position: relative;
+}
+
+.quote-mark {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    font-family: serif;
+    line-height: 1;
+}
+
+/* Ancient Link Styling */
+.ancient-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--accent-gold), var(--secondary-color));
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.ancient-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-gold));
+}
+
+.link-decoration {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design for Vietnamese Elements */
+@media (max-width: 768px) {
+    .vietnamese-decorations {
+        display: none;
+    }
+    
+    .audio-controls {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .audio-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .calligraphy-title {
+        font-size: 2rem;
+    }
+    
+    .vietnamese-chapter {
+        font-size: 1.2rem;
+    }
+    
+    .ancient-title {
+        font-size: 2rem;
+    }
+    
+    .scroll-ornament {
+        font-size: 2rem;
+    }
+    
+    .ancient-timeline-item::before {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 0.9rem;
     }
 }
