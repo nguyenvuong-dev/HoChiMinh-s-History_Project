@@ -1,275 +1,70 @@
-# 🏠 Trọ UNI - Nền tảng tìm kiếm phòng trọ cho sinh viên
+# Getting Started with Create React App
 
-## 📋 Tổng quan
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Trọ UNI là một nền tảng web hiện đại được thiết kế đặc biệt cho sinh viên để tìm kiếm, đăng tin và quản lý phòng trọ. Dự án đã được cải thiện đáng kể với nhiều tính năng thu hút và giao diện người dùng hiện đại.
+## Available Scripts
 
-## ✨ Những cải thiện chính
+In the project directory, you can run:
 
-### 🎨 Giao diện người dùng hiện đại
+### `npm start`
 
-- **Hero Section với Animation**: Background gradient đẹp mắt với các icon floating
-- **Interactive Cards**: Cards phòng trọ với hover effects và animations
-- **Responsive Design**: Tối ưu cho mọi thiết bị (mobile, tablet, desktop)
-- **Dark Mode**: Hỗ trợ chế độ tối với toggle button
-- **Modern UI Components**: Sử dụng Bootstrap 5 với custom styling
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### 🎯 Tính năng thu hút sinh viên
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-#### 1. **Interactive Map Component** (`InteractiveMap.js`)
+### `npm test`
 
-- Bản đồ tương tác hiển thị phòng trọ gần trường đại học
-- Filter theo trường đại học và khoảng cách
-- Modal chi tiết phòng trọ với thông tin đầy đủ
-- Visual indicators cho các trường đại học chính
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### 2. **Student Features Component** (`StudentFeatures.js`)
+### `npm run build`
 
-- **Tính toán chi phí**: Công cụ tính tổng chi phí thuê phòng trọ
-- **So sánh phòng trọ**: Bảng so sánh chi tiết các phòng trọ
-- **Ưu đãi sinh viên**: Giảm giá và khuyến mãi đặc biệt
-- **Cộng đồng sinh viên**: Kết nối và chia sẻ kinh nghiệm
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#### 3. **Gamification Features** (`GamificationFeatures.js`)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- **Hệ thống điểm thưởng**: Tích điểm cho các hoạt động
-- **Thành tích (Achievements)**: Mở khóa thành tích khi hoàn thành nhiệm vụ
-- **Bảng xếp hạng**: So sánh với các sinh viên khác
-- **Nhiệm vụ hàng ngày**: Tạo thói quen sử dụng app
-- **Cửa hàng phần thưởng**: Đổi điểm lấy ưu đãi thực tế
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### 🚀 Tính năng nâng cao
+### `npm run eject`
 
-#### **Enhanced Home Page**
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- **Animated Hero Section**: Background với floating icons
-- **Quick Stats**: Thống kê nhanh về nền tảng
-- **Interactive Property Cards**: Hover effects, favorite buttons
-- **Advanced Search Modal**: Tìm kiếm nâng cao với filters
-- **Testimonials Carousel**: Đánh giá từ sinh viên thực tế
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-#### **Improved Navigation**
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- **Animated Logo**: Logo với hiệu ứng glow và rotation
-- **Smart Search**: Tìm kiếm thông minh với suggestions
-- **User Profile**: Hiển thị thông tin người dùng và level
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## 🛠️ Công nghệ sử dụng
+## Learn More
 
-### Frontend
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- **React 18**: Framework chính
-- **Bootstrap 5**: UI framework
-- **React Icons**: Icon library
-- **React Router**: Navigation
-- **React Toastify**: Notifications
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Backend & Services
+### Code Splitting
 
-- **Firebase**: Authentication, Database, Storage
-- **Express.js**: Server API
-- **Stripe**: Payment processing
-- **Google Maps API**: Bản đồ tương tác
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Styling & Animation
+### Analyzing the Bundle Size
 
-- **CSS3**: Custom animations và effects
-- **CSS Grid & Flexbox**: Layout hiện đại
-- **CSS Variables**: Theme management
-- **Responsive Design**: Mobile-first approach
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## 📱 Tính năng chính
+### Making a Progressive Web App
 
-### 🔐 Authentication
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-- Đăng ký/Đăng nhập với email
-- Social login (Google, Facebook)
-- Password reset
-- Email verification
+### Advanced Configuration
 
-### 🏠 Property Management
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-- Đăng tin phòng trọ miễn phí
-- Upload ảnh với drag & drop
-- Quản lý tin đăng cá nhân
-- Chỉnh sửa và xóa tin
+### Deployment
 
-### 🔍 Search & Filter
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-- Tìm kiếm theo địa điểm
-- Filter theo giá, tiện nghi
-- Tìm kiếm gần trường đại học
-- Advanced search với nhiều tiêu chí
+### `npm run build` fails to minify
 
-### 💬 Communication
-
-- Chat real-time giữa chủ trọ và người thuê
-- Notification system
-- Message history
-- File sharing
-
-### 💳 Payment & Booking
-
-- Thanh toán online với Stripe
-- Booking system
-- Payment history
-- Refund processing
-
-## 🎨 Design System
-
-### Color Palette
-
-- **Primary**: `#00ff87` (Neon Green)
-- **Secondary**: `#60efff` (Cyan)
-- **Gradient**: `linear-gradient(135deg, #667eea 0%, #764ba2 100%)`
-- **Dark Mode**: Custom dark theme
-
-### Typography
-
-- **Headings**: Bold, modern sans-serif
-- **Body**: Clean, readable font
-- **Icons**: Bootstrap Icons + React Icons
-
-### Components
-
-- **Cards**: Rounded corners, shadows, hover effects
-- **Buttons**: Gradient backgrounds, rounded corners
-- **Modals**: Backdrop blur, smooth animations
-- **Forms**: Modern styling, validation feedback
-
-## 📊 Performance & SEO
-
-### Optimization
-
-- **Lazy Loading**: Images và components
-- **Code Splitting**: React.lazy() cho routes
-- **Image Optimization**: WebP format, responsive images
-- **Bundle Optimization**: Tree shaking, minification
-
-### SEO Features
-
-- **Meta Tags**: Dynamic meta descriptions
-- **Structured Data**: JSON-LD markup
-- **Sitemap**: Auto-generated sitemap
-- **Social Sharing**: Open Graph tags
-
-## 🔧 Cài đặt và chạy
-
-### Prerequisites
-
-- Node.js 16+
-- npm hoặc yarn
-- Firebase account
-- Stripe account (cho payment)
-
-### Installation
-
-```bash
-# Clone repository
-git clone [repository-url]
-cd rental-housing
-
-# Install dependencies
-npm install
-
-# Setup environment variables
-cp .env.example .env
-# Edit .env với các API keys
-
-# Start development server
-npm start
-
-# Build for production
-npm run build
-```
-
-### Environment Variables
-
-```env
-REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
-REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
-REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
-REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
-```
-
-## 🚀 Deployment
-
-### Firebase Hosting
-
-```bash
-npm run build
-firebase deploy
-```
-
-### Netlify
-
-- Connect GitHub repository
-- Build command: `npm run build`
-- Publish directory: `build`
-
-## 📈 Analytics & Monitoring
-
-### Firebase Analytics
-
-- User behavior tracking
-- Conversion tracking
-- Custom events
-
-### Error Monitoring
-
-- Firebase Crashlytics
-- Console error logging
-- User feedback system
-
-## 🔮 Roadmap
-
-### Phase 1 (Completed)
-
-- ✅ Basic CRUD operations
-- ✅ User authentication
-- ✅ Property listing
-- ✅ Search & filter
-
-### Phase 2 (In Progress)
-
-- 🔄 Advanced search with map
-- 🔄 Gamification system
-- 🔄 Student-specific features
-- 🔄 Payment integration
-
-### Phase 3 (Planned)
-
-- 📋 AI-powered recommendations
-- 📋 Virtual tour feature
-- 📋 Mobile app development
-- 📋 Advanced analytics
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Team
-
-- **Frontend Developer**: [Your Name]
-- **Backend Developer**: [Your Name]
-- **UI/UX Designer**: [Your Name]
-- **Product Manager**: [Your Name]
-
-## 📞 Contact
-
-- **Email**: contact@trouni.com
-- **Website**: https://trouni.com
-- **Support**: support@trouni.com
-
----
-
-**Trọ UNI** - Nơi sinh viên tìm thấy ngôi nhà thứ hai! 🏠🎓
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
