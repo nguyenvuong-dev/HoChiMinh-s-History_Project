@@ -1,0 +1,352 @@
+/* Header ancient typography */
+.historical-header .chapter-number {
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+}
+
+.historical-title {
+    font-family: 'Cinzel', serif;
+    color: #FFD700;
+    font-size: 3.2rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    text-shadow: 
+        3px 3px 0 #8B0000,
+        6px 6px 12px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.5);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.historical-quote, .quote-author {
+    font-family: 'Crimson Text', serif;
+    color: #FFFFFF;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.historical-header {
+    background: 
+        linear-gradient(135deg, var(--header-bg) 0%, #2D0A0A 50%, var(--header-bg) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="wood" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="%234A1010"/><path d="M0 10 L20 10" stroke="%233D0D0D" stroke-width="0.5"/><path d="M10 0 L10 20" stroke="%233D0D0D" stroke-width="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23wood)"/></svg>');
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    border-bottom: 8px solid var(--border-color);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(212, 175, 55, 0.3);
+    z-index: 10;
+}
+
+.historical-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--accent-gold) 20%, 
+        var(--secondary-color) 50%, 
+        var(--accent-gold) 80%, 
+        transparent 100%
+    );
+}
+
+.historical-header::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, 
+        var(--border-color) 0%, 
+        var(--dark-wood) 50%, 
+        var(--border-color) 100%
+    );
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    color: var(--secondary-color);
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    text-shadow: 
+        2px 2px 0 var(--primary-color),
+        4px 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.main-title::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    right: -20px;
+    bottom: -10px;
+    background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(212, 175, 55, 0.1) 50%, 
+        transparent 100%
+    );
+    border: 2px solid var(--accent-gold);
+    border-radius: 15px;
+    z-index: -1;
+    box-shadow: 
+        inset 0 0 20px rgba(212, 175, 55, 0.2),
+        0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.quote {
+    color: #FFF;
+    font-style: italic;
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(212, 175, 55, 0.3);
+    position: relative;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-gold);
+    border-right: 4px solid var(--accent-gold);
+    display: inline-block;
+}
+
+.quote::before {
+    content: '"';
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    font-size: 3rem;
+    color: var(--accent-gold);
+    font-family: serif;
+}
+
+.quote::after {
+    content: '"';
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    font-size: 3rem;
+    color: var(--accent-gold);
+    font-family: serif;
+}
+
+/* Header effects: antique underline reveal and scroll indicator */
+.title-underline {
+    width: 160px;
+    height: 4px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    filter: drop-shadow(0 0 6px rgba(212,175,55,0.6));
+    animation: underlineGlow 3s ease-in-out infinite;
+}
+
+@keyframes underlineGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.historical-scroll {
+    margin-top: 1.25rem;
+    color: var(--accent-gold);
+}
+
+.historical-scroll .fa-chevron-down {
+    animation: antiqueBounce 2.2s ease-in-out infinite;
+}
+
+@keyframes antiqueBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* Vietnamese Emblem in Header */
+.vietnamese-emblem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.star-emblem {
+    font-size: 2.5rem;
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    animation: emblemGlow 3s ease-in-out infinite;
+}
+
+.emblem-text {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes emblemGlow {
+    0%, 100% { transform: scale(1); text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+    50% { transform: scale(1.1); text-shadow: 0 0 30px rgba(255, 215, 0, 1); }
+}
+
+/* Vietnamese Chapter Styling */
+.vietnamese-chapter {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+}
+
+.chapter-decoration {
+    font-size: 1.2rem;
+    margin: 0 10px;
+    animation: decorationSpin 4s linear infinite;
+}
+
+@keyframes decorationSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Calligraphy Title Effect */
+.calligraphy-title {
+    font-family: 'IM Fell English SC', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title-line {
+    display: block;
+    position: relative;
+    animation: calligraphyWrite 2s ease-in-out forwards;
+    opacity: 0;
+}
+
+.title-line:nth-child(1) { animation-delay: 0.5s; }
+.title-line:nth-child(2) { animation-delay: 1s; }
+.title-line:nth-child(3) { animation-delay: 1.5s; }
+
+@keyframes calligraphyWrite {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Quote Container */
+.quote-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.quote-decoration-left, .quote-decoration-right {
+    font-size: 2rem;
+    animation: petalFloat 3s ease-in-out infinite;
+}
+
+.quote-decoration-right {
+    animation-delay: 1.5s;
+}
+
+@keyframes petalFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.calligraphy-quote {
+    font-family: 'IM Fell English SC', serif;
+    font-style: italic;
+    position: relative;
+}
+
+/* Author Decoration */
+.quote-author {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.author-decoration {
+    margin: 0 10px;
+    animation: authorGlow 2s ease-in-out infinite;
+}
+
+@keyframes authorGlow {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Underline Decoration */
+.underline-decoration {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    opacity: 0.8;
+    animation: underlineShimmer 3s ease-in-out infinite;
+}
+
+@keyframes underlineShimmer {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; text-shadow: 0 0 10px rgba(212, 175, 55, 0.6); }
+}
+
+/* Calligraphy Writing Effect */
+.calligraphy-title .title-line::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-gold), transparent);
+    animation: writeUnderline 1s ease-in-out forwards;
+    animation-delay: inherit;
+}
+
+@keyframes writeUnderline {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calligraphy-title {
+        font-size: 2rem;
+    }
+    
+    .vietnamese-chapter {
+        font-size: 1.2rem;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+}

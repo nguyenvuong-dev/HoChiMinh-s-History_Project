@@ -1,0 +1,421 @@
+:root {
+    --primary-color: #8B0000; /* Deep red */
+    --secondary-color: #D4AF37; /* Royal gold */
+    --background-color: #F5E6D3; /* Antique paper */
+    --text-color: #2C1810;
+    --header-bg: #4A1010; /* Dark burgundy */
+    --border-color: #8B4513; /* Saddle brown */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --accent-gold: #FFD700;
+    --dark-wood: #654321;
+    --parchment: #FDF5E6;
+    --bright-gold: #FFD700;
+    --dark-brown: #2C1810;
+    --deep-red: #8B0000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: 
+        /* Ancient Vietnamese temple silhouette */
+        radial-gradient(ellipse at 10% 90%, rgba(139, 69, 19, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 90%, rgba(139, 69, 19, 0.15) 0%, transparent 40%),
+        /* Mountain ranges */
+        linear-gradient(180deg, transparent 0%, rgba(101, 67, 33, 0.1) 85%, rgba(101, 67, 33, 0.2) 100%),
+        /* Golden hour sky */
+        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.12) 0%, transparent 50%),
+        /* Ancient parchment texture */
+        linear-gradient(135deg, #F5E6D3 0%, #E9D8B4 25%, #DCC99F 50%, #E3CCA3 75%, #F1E4C8 100%),
+        /* Traditional Vietnamese patterns */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="vietnamese-pattern" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="%23F5E6D3"/><circle cx="25" cy="25" r="2" fill="%23D4AF37" opacity="0.1"/><circle cx="75" cy="75" r="2" fill="%23D4AF37" opacity="0.1"/><path d="M0,50 Q25,40 50,50 Q75,60 100,50" stroke="%238B4513" stroke-width="0.5" opacity="0.05" fill="none"/><path d="M50,0 Q40,25 50,50 Q60,75 50,100" stroke="%238B4513" stroke-width="0.5" opacity="0.05" fill="none"/></pattern></defs><rect width="200" height="200" fill="url(%23vietnamese-pattern)"/></svg>');
+    background-attachment: fixed;
+    background-size: cover, cover, cover, cover, cover, auto, 200px 200px;
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23000" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23000" opacity="0.02"/><circle cx="50" cy="10" r="0.5" fill="%23000" opacity="0.01"/><circle cx="10" cy="60" r="0.5" fill="%23000" opacity="0.01"/><circle cx="90" cy="40" r="0.5" fill="%23000" opacity="0.01"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Vignette overlay for historical ambience */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.15) 100%);
+    z-index: 1;
+}
+
+.App {
+    position: relative;
+    z-index: 2;
+}
+
+/* Vietnamese Traditional Decorations */
+.vietnamese-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Dragon Elements */
+.dragon-left, .dragon-right {
+    position: absolute;
+    top: 20%;
+    width: 200px;
+    height: 100px;
+    opacity: 0.7;
+    animation: dragonFloat 8s ease-in-out infinite;
+}
+
+.dragon-left {
+    left: -50px;
+    animation-delay: 0s;
+}
+
+.dragon-right {
+    right: -50px;
+    animation-delay: 4s;
+}
+
+.dragon-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+@keyframes dragonFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(2deg); }
+    50% { transform: translateY(-10px) rotate(-1deg); }
+    75% { transform: translateY(-30px) rotate(1deg); }
+}
+
+/* Lotus Flowers */
+.lotus {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: lotusBloom 6s ease-in-out infinite;
+}
+
+.lotus-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.lotus-2 {
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 3s;
+}
+
+.lotus-petal {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: linear-gradient(45deg, #FFB6C1, #FFC0CB);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin: bottom center;
+    opacity: 0.8;
+}
+
+.lotus-petal:nth-child(1) { transform: rotate(0deg) translateY(-15px); }
+.lotus-petal:nth-child(2) { transform: rotate(90deg) translateY(-15px); }
+.lotus-petal:nth-child(3) { transform: rotate(180deg) translateY(-15px); }
+.lotus-petal:nth-child(4) { transform: rotate(270deg) translateY(-15px); }
+
+.lotus-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes lotusBloom {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+}
+
+/* Vietnamese Flag Stars */
+.flag-star {
+    position: absolute;
+    font-size: 2rem;
+    color: #FFD700;
+    animation: starTwinkle 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.flag-star-1 {
+    top: 25%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.flag-star-2 {
+    bottom: 30%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+    50% { transform: scale(1.3) rotate(180deg); opacity: 1; }
+}
+
+/* Temple Silhouettes */
+.temple-silhouette {
+    position: absolute;
+    bottom: 10%;
+    width: 80px;
+    height: 60px;
+    opacity: 0.4;
+}
+
+.temple-left {
+    left: 3%;
+}
+
+.temple-right {
+    right: 3%;
+}
+
+.temple-roof {
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    clip-path: polygon(10% 100%, 50% 0%, 90% 100%);
+    border-radius: 0 0 10px 10px;
+}
+
+.temple-body {
+    width: 70%;
+    height: 35px;
+    background: linear-gradient(180deg, #654321, #8B4513);
+    margin: 0 auto;
+    border-radius: 0 0 5px 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Incense Smoke Effect */
+.incense-container {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 200px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.smoke {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 100px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.6), transparent);
+    border-radius: 50%;
+    animation: smokeRise 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.smoke-1 {
+    animation-delay: 0s;
+    left: 45%;
+}
+
+.smoke-2 {
+    animation-delay: 1.3s;
+    left: 50%;
+}
+
+.smoke-3 {
+    animation-delay: 2.6s;
+    left: 55%;
+}
+
+@keyframes smokeRise {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-50px) scaleX(2);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-100px) scaleX(3);
+        opacity: 0;
+    }
+}
+
+/* Audio Controls */
+.audio-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.audio-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-gold), var(--secondary-color));
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.audio-btn.playing {
+    animation: audioGlow 2s ease-in-out infinite;
+}
+
+@keyframes audioGlow {
+    0%, 100% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+    50% { box-shadow: 0 6px 25px rgba(212, 175, 55, 0.8); }
+}
+
+/* Historical decorative elements */
+.historical-ornaments {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ornament {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, var(--accent-gold), transparent);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: ornamentFloat 6s ease-in-out infinite;
+}
+
+.ornament-top-left {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.ornament-top-right {
+    top: 10%;
+    right: 5%;
+    animation-delay: 2s;
+}
+
+.ornament-bottom-left {
+    bottom: 10%;
+    left: 5%;
+    animation-delay: 4s;
+}
+
+.ornament-bottom-right {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 6s;
+}
+
+@keyframes ornamentFloat {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.6; }
+}
+
+/* Particles Container */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Creative historical layout */
+.historical-main {
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vietnamese-decorations {
+        display: none;
+    }
+    
+    .audio-controls {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .audio-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .incense-container {
+        display: none;
+    }
+    
+    .historical-ornaments {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+}

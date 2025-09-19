@@ -1,0 +1,403 @@
+/* Import base styles from Page1 */
+@import './Page1.css';
+
+/* Page3 specific improvements */
+.page-title {
+    font-family: 'Cinzel', serif;
+    color: #FFD700;
+    font-size: 2.8rem;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-shadow: 
+        3px 3px 0 #8B0000,
+        6px 6px 12px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.5);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.page-subtitle {
+    font-family: 'Crimson Text', serif;
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+.section-header h2 {
+    font-family: 'Cinzel', serif;
+    color: #8B0000;
+    font-size: 2.2rem;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+.lead-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: #1A0E0A;
+    margin-bottom: 2rem;
+    text-align: justify;
+    font-weight: 600;
+}
+
+.content-box {
+    background: 
+        linear-gradient(135deg, #F8F4E6 0%, rgba(255, 255, 255, 0.98) 100%);
+    border: 3px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: all 0.4s ease;
+}
+
+.highlight-quote blockquote {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #8B0000;
+    margin: 0 0 1rem 0;
+    position: relative;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.content-box h3 {
+    font-family: 'Cinzel', serif;
+    color: #8B0000;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    border-bottom: 3px solid #D4AF37;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.content-box p {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #1A0E0A;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    font-weight: 500;
+}
+
+/* Page3 specific styles */
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.activity-card {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, var(--parchment) 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.activity-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--accent-gold) 0%, 
+        transparent 20%,
+        transparent 80%,
+        var(--accent-gold) 100%
+    );
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.activity-card:hover::before {
+    opacity: 1;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.activity-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: activityIconRotate 4s linear infinite;
+}
+
+@keyframes activityIconRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.activity-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.activity-card p {
+    font-family: 'Crimson Text', serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Achievement Stats */
+.achievement-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 15px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, var(--parchment) 100%);
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.stat-number {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    animation: statNumberGlow 3s ease-in-out infinite;
+}
+
+@keyframes statNumberGlow {
+    0%, 100% { 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+    }
+    50% { 
+        text-shadow: 2px 2px 8px rgba(212, 175, 55, 0.6);
+        transform: scale(1.05);
+    }
+}
+
+.stat-label {
+    font-family: 'Crimson Text', serif;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Achievement Details */
+.achievement-details {
+    margin-top: 3rem;
+}
+
+.achievement-details h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.achievement-list {
+    list-style: none;
+    padding: 0;
+}
+
+.achievement-list li {
+    font-family: 'Crimson Text', serif;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 1rem 0;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.achievement-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-gold);
+    font-weight: bold;
+    font-size: 1.2rem;
+    animation: checkMarkPulse 2s ease-in-out infinite;
+}
+
+@keyframes checkMarkPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Lesson Summary */
+.lesson-summary {
+    margin-top: 2rem;
+}
+
+.lesson-summary h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 1rem;
+}
+
+.lesson-points {
+    display: grid;
+    gap: 2rem;
+}
+
+.lesson-point {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, var(--parchment) 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.lesson-point::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--accent-gold) 0%, 
+        var(--secondary-color) 50%, 
+        var(--accent-gold) 100%
+    );
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lesson-point:hover::before {
+    opacity: 1;
+}
+
+.lesson-point:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.point-icon {
+    font-size: 2.5rem;
+    animation: pointIconFloat 3s ease-in-out infinite;
+}
+
+@keyframes pointIconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.point-content {
+    flex: 1;
+}
+
+.point-content h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.point-content p {
+    font-family: 'Crimson Text', serif;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Responsive Design for Page3 */
+@media (max-width: 768px) {
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievement-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .lesson-point {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .point-icon {
+        margin: 0 auto;
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .achievement-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .lesson-point {
+        padding: 1.5rem;
+    }
+    
+    .achievement-list li {
+        font-size: 1rem;
+        padding-left: 1.5rem;
+    }
+}

@@ -1,0 +1,799 @@
+/* Historical Timeline styling */
+.timeline-container {
+    padding: 5rem 0;
+    background: 
+        linear-gradient(135deg, 
+            var(--parchment) 0%,
+            rgba(245, 230, 211, 0.95) 50%,
+            var(--parchment) 100%
+        );
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+    border-top: 8px solid var(--border-color);
+    border-bottom: 8px solid var(--border-color);
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="parchment" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="%23FDF5E6"/><circle cx="25" cy="25" r="1" fill="%23000" opacity="0.05"/><circle cx="10" cy="10" r="0.5" fill="%23000" opacity="0.03"/><circle cx="40" cy="40" r="0.5" fill="%23000" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23parchment)"/></svg>');
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+/* Historical scroll timeline line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-gold), var(--border-color));
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 6px;
+    box-shadow: 
+        0 0 20px rgba(139, 0, 0, 0.4),
+        0 0 40px rgba(212, 175, 55, 0.3),
+        inset 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+}
+
+/* Add scroll decorative ends */
+.timeline::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(180deg, 
+        var(--accent-gold) 0%,
+        var(--border-color) 30%,
+        var(--accent-gold) 70%,
+        var(--border-color) 100%
+    );
+    border-radius: 15px 15px 0 0;
+    box-shadow: 
+        0 0 15px rgba(212, 175, 55, 0.6),
+        inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(180deg, 
+        var(--border-color) 0%,
+        var(--accent-gold) 30%,
+        var(--border-color) 70%,
+        var(--accent-gold) 100%
+    );
+    border-radius: 0 0 15px 15px;
+    box-shadow: 
+        0 0 15px rgba(212, 175, 55, 0.6),
+        inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    transform: translateY(40px);
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    transform: translateX(100px) translateY(50px) rotateY(15deg);
+    animation: slideInFromRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px) translateY(50px) rotateY(-15deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateX(-20px) translateY(10px) rotateY(-5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) rotateY(0deg);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px) translateY(50px) rotateY(15deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateX(20px) translateY(10px) rotateY(5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) rotateY(0deg);
+    }
+}
+
+.timeline-content {
+    padding: 30px;
+    background: 
+        linear-gradient(135deg, 
+            var(--parchment) 0%, 
+            rgba(255, 255, 255, 0.95) 100%
+        );
+    border-radius: 20px;
+    box-shadow: 
+        0 12px 35px rgba(0, 0, 0, 0.2),
+        0 6px 15px rgba(212, 175, 55, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.45s ease;
+    border: 4px solid var(--border-color);
+    overflow: hidden;
+    transform: scale(1);
+    transform-origin: center;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(45deg, 
+        var(--accent-gold) 0%, 
+        var(--secondary-color) 50%, 
+        var(--accent-gold) 100%
+    );
+    border-radius: 24px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+.timeline-content:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        0 14px 40px rgba(139, 0, 0, 0.35),
+        0 8px 20px rgba(212, 175, 55, 0.45);
+    border-color: var(--secondary-color);
+    background: 
+        linear-gradient(135deg, 
+            rgba(255, 255, 255, 1) 0%,
+            var(--parchment) 100%
+        );
+}
+
+.timeline-content:hover::before {
+    opacity: 1;
+}
+
+.timeline-content:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-content img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: sepia(20%) contrast(1.05);
+    transition: transform 0.6s ease, filter 0.6s ease, opacity 0.5s ease;
+    opacity: 0;
+    transform: translateY(18px);
+}
+
+.timeline-content:hover img {
+    opacity: 1;
+    transform: translateY(0);
+    filter: sepia(10%) contrast(1.1);
+}
+
+.timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, 
+        var(--accent-gold) 0%,
+        var(--secondary-color) 30%,
+        var(--primary-color) 70%,
+        var(--accent-gold) 100%
+    );
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 5px solid var(--parchment);
+    z-index: 3;
+    box-shadow: 
+        0 0 25px rgba(212, 175, 55, 0.6),
+        0 0 50px rgba(139, 0, 0, 0.4),
+        inset 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: historicalScaleIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.7),
+        0 0 10px rgba(255, 255, 255, 0.3);
+    transform-origin: center;
+    position: relative;
+}
+
+.timeline-item:nth-child(1)::before { animation-delay: 0.4s; }
+.timeline-item:nth-child(2)::before { animation-delay: 0.6s; }
+.timeline-item:nth-child(3)::before { animation-delay: 0.8s; }
+
+@keyframes historicalScaleIn {
+    0% {
+        transform: translateY(-50%) scale(0) rotate(180deg);
+    }
+    50% {
+        transform: translateY(-50%) scale(1.4) rotate(90deg);
+    }
+    100% {
+        transform: translateY(-50%) scale(1) rotate(0deg);
+    }
+}
+
+.timeline-item:hover::before {
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 
+        0 0 28px rgba(212, 175, 55, 0.75),
+        0 0 52px rgba(139, 0, 0, 0.5),
+        inset 0 0 22px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-item:nth-child(odd)::before {
+    right: -30px;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: -30px;
+}
+
+.timeline-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+/* Ancient Timeline Styles */
+.ancient-scroll-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+    position: relative;
+    background: 
+        linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="scroll-header" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="%23FDF5E6"/><path d="M0,25 Q12.5,15 25,25 Q37.5,35 50,25" stroke="%23D4AF37" stroke-width="0.3" opacity="0.4" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23scroll-header)"/></svg>');
+    border-radius: 20px;
+    margin: 2rem;
+    box-shadow: 
+        0 10px 30px rgba(139, 69, 19, 0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.scroll-ornament {
+    font-size: 3rem;
+    animation: dragonBreath 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+}
+
+.scroll-ornament-left {
+    animation-delay: 0s;
+}
+
+.scroll-ornament-right {
+    animation-delay: 2s;
+}
+
+@keyframes dragonBreath {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+}
+
+.timeline-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 2rem;
+}
+
+.ancient-seal {
+    font-size: 2rem;
+    animation: sealGlow 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
+}
+
+@keyframes sealGlow {
+    0%, 100% { opacity: 0.7; transform: rotate(0deg); }
+    50% { opacity: 1; transform: rotate(180deg); }
+}
+
+.ancient-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 
+        2px 2px 0 var(--accent-gold),
+        4px 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.ancient-subtitle {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.2rem;
+    color: var(--dark-wood);
+    text-align: center;
+    font-style: italic;
+}
+
+.subtitle-decoration {
+    margin: 0 15px;
+    color: var(--accent-gold);
+    animation: decorationTwinkle 2s ease-in-out infinite;
+}
+
+.subtitle-decoration:first-child {
+    animation-delay: 0s;
+}
+
+.subtitle-decoration:last-child {
+    animation-delay: 1s;
+}
+
+@keyframes decorationTwinkle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Ancient Timeline Line */
+.ancient-scroll-line {
+    background: 
+        linear-gradient(180deg, 
+            var(--accent-gold) 0%,
+            var(--border-color) 10%,
+            var(--dark-wood) 20%,
+            var(--border-color) 30%,
+            var(--accent-gold) 40%,
+            var(--border-color) 50%,
+            var(--accent-gold) 60%,
+            var(--border-color) 70%,
+            var(--dark-wood) 80%,
+            var(--border-color) 90%,
+            var(--accent-gold) 100%
+        );
+    width: 8px;
+    border-radius: 4px;
+    box-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.5),
+        inset 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.timeline-scroll-top, .timeline-scroll-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    z-index: 10;
+    animation: scrollFloat 3s ease-in-out infinite;
+}
+
+.timeline-scroll-top {
+    top: -30px;
+    animation-delay: 0s;
+}
+
+.timeline-scroll-bottom {
+    bottom: -30px;
+    animation-delay: 1.5s;
+}
+
+@keyframes scrollFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Ancient Timeline Items */
+.ancient-timeline-item {
+    position: relative;
+}
+
+.ancient-timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: 
+        radial-gradient(circle, 
+            var(--accent-gold) 0%,
+            var(--secondary-color) 30%,
+            var(--primary-color) 70%,
+            var(--dark-wood) 100%
+        );
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Cinzel', serif;
+    border: 6px solid var(--parchment);
+    z-index: 3;
+    box-shadow: 
+        0 0 30px rgba(212, 175, 55, 0.8),
+        0 0 60px rgba(139, 0, 0, 0.4),
+        inset 0 0 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: ancientScaleIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes ancientScaleIn {
+    0% {
+        transform: translateY(-50%) scale(0) rotate(360deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-50%) scale(1.3) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.ancient-timeline-item:hover::before {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 
+        0 0 35px rgba(212, 175, 55, 1),
+        0 0 70px rgba(139, 0, 0, 0.6),
+        inset 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Ancient Content Styling */
+.ancient-content {
+    background: 
+        linear-gradient(135deg, 
+            var(--parchment) 0%, 
+            rgba(255, 255, 255, 0.98) 100%
+        ),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="ancient-paper" width="25" height="25" patternUnits="userSpaceOnUse"><rect width="25" height="25" fill="%23FDF5E6"/><line x1="0" y1="8" x2="25" y2="8" stroke="%23000" stroke-width="0.1" opacity="0.1"/><line x1="0" y1="16" x2="25" y2="16" stroke="%23000" stroke-width="0.1" opacity="0.1"/><circle cx="5" cy="5" r="0.5" fill="%23D4AF37" opacity="0.1"/><circle cx="20" cy="20" r="0.5" fill="%23D4AF37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23ancient-paper)"/></svg>');
+    border: 4px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 
+        0 15px 40px rgba(139, 69, 19, 0.4),
+        inset 0 0 25px rgba(212, 175, 55, 0.1);
+    transform: perspective(1000px) rotateX(3deg);
+    transition: all 0.5s ease;
+}
+
+.ancient-content:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-8px);
+    box-shadow: 
+        0 20px 50px rgba(139, 69, 19, 0.5),
+        inset 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+.content-seal {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    background: radial-gradient(circle, var(--accent-gold), var(--secondary-color));
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    animation: sealRotate 4s linear infinite;
+}
+
+@keyframes sealRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.ancient-event-title {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid var(--accent-gold);
+    padding-bottom: 0.5rem;
+}
+
+/* Ancient Image Frame */
+.image-frame-ancient {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    transform: rotate(-1deg);
+    transition: all 0.4s ease;
+}
+
+.ancient-timeline-item.right .image-frame-ancient {
+    transform: rotate(1deg);
+}
+
+.image-frame-ancient:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.image-frame-ancient img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: sepia(20%) contrast(1.1) brightness(0.9);
+    transition: all 0.4s ease;
+}
+
+.image-frame-ancient:hover img {
+    filter: sepia(10%) contrast(1.2) brightness(1);
+}
+
+.image-border-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.corner-ornament {
+    position: absolute;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    animation: ornamentGlow 3s ease-in-out infinite;
+}
+
+.corner-ornament.top-left {
+    top: 10px;
+    left: 10px;
+    animation-delay: 0s;
+}
+
+.corner-ornament.top-right {
+    top: 10px;
+    right: 10px;
+    animation-delay: 0.75s;
+}
+
+.corner-ornament.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    animation-delay: 1.5s;
+}
+
+.corner-ornament.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    animation-delay: 2.25s;
+}
+
+@keyframes ornamentGlow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Ancient Text Styling */
+.ancient-text {
+    margin: 1.5rem 0;
+}
+
+.event-description {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.ancient-quote {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid var(--accent-gold);
+    border-right: 4px solid var(--accent-gold);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    font-style: italic;
+    text-align: center;
+    position: relative;
+}
+
+.quote-mark {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    font-family: serif;
+    line-height: 1;
+}
+
+/* Ancient Link Styling */
+.ancient-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--accent-gold), var(--secondary-color));
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.ancient-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-gold));
+}
+
+.link-decoration {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+        width: 3px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        animation: slideInFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        transform: translateX(-30px) translateY(20px);
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+        animation: slideInFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        transform: translateX(-30px) translateY(20px);
+    }
+    
+    .timeline-item::before {
+        left: 0;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 0.9rem;
+        transform: translateY(-50%) scale(0);
+        animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .timeline-content {
+        padding: 20px;
+        transform: scale(1);
+    }
+
+    .timeline-content:hover {
+        transform: scale(1.05);
+    }
+    
+    .ancient-title {
+        font-size: 2rem;
+    }
+    
+    .scroll-ornament {
+        font-size: 2rem;
+    }
+    
+    .ancient-timeline-item::before {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .timeline-item {
+        padding-left: 60px;
+        padding-right: 15px;
+    }
+    
+    .timeline-item::before {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 0.8rem;
+    }
+    
+    .timeline-content {
+        padding: 15px;
+    }
+    
+    .timeline-content:hover {
+        transform: scale(1.03);
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+}

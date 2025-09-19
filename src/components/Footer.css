@@ -1,0 +1,250 @@
+/* Historical Footer */
+.historical-footer {
+    background: 
+        linear-gradient(135deg, 
+            var(--header-bg) 0%, 
+            #2D0A0A 50%, 
+            var(--header-bg) 100%
+        ),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footer-wood" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="%234A1010"/><path d="M0 10 L20 10" stroke="%233D0D0D" stroke-width="0.5"/><path d="M10 0 L10 20" stroke="%233D0D0D" stroke-width="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23footer-wood)"/></svg>');
+    color: var(--secondary-color);
+    padding: 3rem 2rem 2rem;
+    border-top: 8px solid var(--border-color);
+    box-shadow: 
+        0 -8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(212, 175, 55, 0.3);
+    position: relative;
+}
+
+.historical-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--accent-gold) 20%, 
+        var(--secondary-color) 50%, 
+        var(--accent-gold) 80%, 
+        transparent 100%
+    );
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.footer-logo i {
+    font-size: 2rem;
+    animation: bookGlow 3s ease-in-out infinite;
+}
+
+@keyframes bookGlow {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        transform: scale(1);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+        transform: scale(1.1);
+    }
+}
+
+.footer-quote {
+    font-family: 'IM Fell English SC', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.footer-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin: 0.8rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.footer-section li::before {
+    content: '❋';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-size: 0.8rem;
+    animation: decorationTwinkle 2s ease-in-out infinite;
+}
+
+.footer-section li:nth-child(1)::before { animation-delay: 0s; }
+.footer-section li:nth-child(2)::before { animation-delay: 0.5s; }
+.footer-section li:nth-child(3)::before { animation-delay: 1s; }
+
+@keyframes decorationTwinkle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Crimson Text', serif;
+}
+
+.footer-section a:hover {
+    color: var(--accent-gold);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    transform: translateX(5px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-gold), var(--secondary-color));
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-gold));
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(212, 175, 55, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-copyright {
+    font-family: 'Crimson Text', serif;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.footer-author {
+    font-family: 'IM Fell English SC', serif;
+    color: var(--accent-gold);
+    font-style: italic;
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .historical-footer {
+        padding: 2rem 1rem 1.5rem;
+    }
+    
+    .footer-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .footer-quote {
+        font-size: 1rem;
+    }
+    
+    .footer-body {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .footer-section h4 {
+        font-size: 1.1rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        padding-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo {
+        font-size: 1.3rem;
+    }
+    
+    .footer-quote {
+        font-size: 0.9rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}

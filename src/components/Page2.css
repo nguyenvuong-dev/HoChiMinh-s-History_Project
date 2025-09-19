@@ -1,0 +1,377 @@
+/* Import base styles from Page1 */
+@import './Page1.css';
+
+/* Page2 specific improvements */
+.page-title {
+    font-family: 'Cinzel', serif;
+    color: #FFD700;
+    font-size: 2.8rem;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-shadow: 
+        3px 3px 0 #8B0000,
+        6px 6px 12px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.5);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.page-subtitle {
+    font-family: 'Crimson Text', serif;
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+.section-header h2 {
+    font-family: 'Cinzel', serif;
+    color: #8B0000;
+    font-size: 2.2rem;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+.lead-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: #1A0E0A;
+    margin-bottom: 2rem;
+    text-align: justify;
+    font-weight: 600;
+}
+
+.content-box {
+    background: 
+        linear-gradient(135deg, #F8F4E6 0%, rgba(255, 255, 255, 0.98) 100%);
+    border: 3px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: all 0.4s ease;
+}
+
+.highlight-quote blockquote {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #8B0000;
+    margin: 0 0 1rem 0;
+    position: relative;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.content-box h3 {
+    font-family: 'Cinzel', serif;
+    color: #8B0000;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    border-bottom: 3px solid #D4AF37;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.content-box p {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #1A0E0A;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    font-weight: 500;
+}
+
+/* Page2 specific styles */
+.method-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.method-card {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, var(--parchment) 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.method-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--accent-gold) 0%, 
+        transparent 20%,
+        transparent 80%,
+        var(--accent-gold) 100%
+    );
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.method-card:hover::before {
+    opacity: 1;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.method-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: methodIconPulse 2s ease-in-out infinite;
+}
+
+@keyframes methodIconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.method-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.method-card p {
+    font-family: 'Crimson Text', serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Achievement Timeline */
+.achievement-timeline {
+    margin-top: 2rem;
+}
+
+.achievement-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 15px;
+    border-left: 5px solid var(--accent-gold);
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateX(10px);
+}
+
+.achievement-year {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--accent-gold), var(--secondary-color));
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-content h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.achievement-content p {
+    font-family: 'Crimson Text', serif;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Lesson Principles */
+.lesson-principles {
+    margin-top: 2rem;
+}
+
+.principle-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, var(--parchment) 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.principle-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--accent-gold) 0%, 
+        var(--secondary-color) 50%, 
+        var(--accent-gold) 100%
+    );
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.principle-item:hover::before {
+    opacity: 1;
+}
+
+.principle-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.principle-number {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    background: radial-gradient(circle, var(--secondary-color), var(--primary-color));
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    animation: principleNumberGlow 3s ease-in-out infinite;
+}
+
+@keyframes principleNumberGlow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+.principle-content {
+    flex: 1;
+}
+
+.principle-content h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.principle-content p {
+    font-family: 'Crimson Text', serif;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Navigation buttons for Page2 */
+.nav-button-prev {
+    background: linear-gradient(135deg, #A0522D, var(--border-color));
+    color: #fff;
+}
+
+.nav-button-prev:hover {
+    background: linear-gradient(135deg, var(--border-color), #A0522D);
+}
+
+/* Responsive Design for Page2 */
+@media (max-width: 768px) {
+    .method-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievement-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .achievement-year {
+        min-width: auto;
+        width: 100px;
+        margin: 0 auto;
+    }
+    
+    .principle-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .principle-number {
+        margin: 0 auto;
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .achievement-item {
+        padding: 1.5rem;
+    }
+    
+    .principle-item {
+        padding: 1.5rem;
+    }
+    
+    .principle-number {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    
+    .achievement-year {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+}
